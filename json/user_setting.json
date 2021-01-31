@@ -1,0 +1,10 @@
+{
+    "username": "<username>",
+    "password": "<password>",
+    "flwph" : 14,
+    "unflwph" : 14,
+    "likeph" : 14,
+    "commentph" : 10,
+    "directph": 10,
+    "unfollow_black_list": ["<username>", "<username>", "<username>"]
+}

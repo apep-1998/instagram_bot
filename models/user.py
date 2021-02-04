@@ -6,7 +6,10 @@
     @date : 
     @version : 
 """
+from instagram_private_api import Client, ClientCompatPatch
 import settings as stng
+from tools import config, cookies
+from functools import partial
 import json
 
 class User(object):
@@ -28,10 +31,12 @@ class User(object):
 
     def __init__(self, username):
         self.username = username
-        self.setting = {}
+        self.setting = partial(config.get_key, file_name=stng.USER_SETTING(username))
+        self.load_setting()
+        self.make_api()
 
-    def load_setting(self):
-        with open(stng.USER_SETTING(self.username), 'r') as setting_file:
-            self.setting = json.load(setting_file)
+    def make_api(self):
+        saved_cookie = cookies.load_cookie(self.username)
+        self.api = Client(self.setting("username"), self.setting("password"))
 
-    
+

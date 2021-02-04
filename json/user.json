@@ -1,0 +1,7 @@
+{
+    "last_flw_action": "datetime",
+    "last_unflw_action": "datetime",
+    "last_like_action": "datetime",
+    "last_comment_action": "datetime",
+    "last_direct_action": "datetime"
+}
